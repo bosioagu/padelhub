@@ -1,0 +1,169 @@
+/* PadelHub Global Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────
+   Design tokens
+────────────────────────────────────────── */
+:root {
+  --color-primary: #1a3a2a;
+  --color-primary-light: #2d5a40;
+  --color-accent: #c8f135;
+  --color-accent-dark: #a8d020;
+  --color-surface: #f8faf6;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --radius-card: 1rem;
+  --shadow-card: 0 4px 24px rgba(26, 58, 42, 0.10);
+}
+
+/* ──────────────────────────────────────────
+   Base
+────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-surface);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ──────────────────────────────────────────
+   Scrollbar
+────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-primary-light); border-radius: 3px; }
+
+/* ──────────────────────────────────────────
+   Utility classes (complementan Tailwind)
+────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+}
+
+.badge-win {
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-loss {
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ──────────────────────────────────────────
+   Route transition
+────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.route-anim { animation: fadeIn 0.2s ease forwards; }
+
+/* ──────────────────────────────────────────
+   Bottom nav (mobile)
+────────────────────────────────────────── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 50;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.15);
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.65rem;
+  text-decoration: none;
+  gap: 2px;
+  transition: color 0.15s;
+  padding: 0 8px;
+}
+
+.bottom-nav a.active,
+.bottom-nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Mobile padding so content doesn't hide behind bottom nav */
+@media (max-width: 768px) {
+  .main-content { padding-bottom: 80px; }
+}
+
+/* ──────────────────────────────────────────
+   Semantic state classes (evita [class.bg-[var(...)]] en Angular)
+────────────────────────────────────────── */
+
+/* Botón / chip seleccionado con color primary */
+.chip-selected {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.chip-unselected {
+  background: transparent;
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
+
+/* Toggle switch ON */
+.toggle-on  { background: var(--color-primary); }
+.toggle-off { background: #d1d5db; }
+
+/* Barra de progreso */
+.bar-accent  { background: var(--color-accent); }
+.bar-warning { background: #fb923c; }
+
+/* Badge de rol admin */
+.badge-admin {
+  background: rgba(26,58,42,0.1);
+  color: var(--color-primary);
+}
+
+/* Card selector de cancha seleccionada */
+.court-card-selected {
+  border-color: var(--color-primary);
+  background: rgba(26,58,42,0.04);
+}
+
+/* Botón inscribirse / activo */
+.btn-primary-solid {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-danger-soft {
+  background: #fef2f2;
+  color: #dc2626;
+}
+

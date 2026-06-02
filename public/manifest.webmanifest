@@ -1,0 +1,28 @@
+{
+  "name": "PadelHub",
+  "short_name": "PadelHub",
+  "description": "Reserva canchas, gestioná clases y seguí tus partidos de pádel",
+  "theme_color": "#1a3a2a",
+  "background_color": "#f8faf6",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

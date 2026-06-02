@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main, qa]
+  pull_request:
+    branches: [main, qa]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NG_APP_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          NG_APP_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
