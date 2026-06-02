@@ -33,7 +33,7 @@ feature/* → qa (QA) → main (producción)
 | Rama | Resultado |
 |------|-----------|
 | `qa` | Vercel despliega en Preview URL — **no toca producción** |
-| `main` | Vercel despliega en producción |
+| `main` | Vercel despliega en producción (`liga-padel.vercel.app`) |
 
 **Trabajar en una feature:**
 ```bash
